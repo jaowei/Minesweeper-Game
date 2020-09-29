@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (total !=0) {
                 square.classList.add('checked')
                 square.innerHTML = total;
-                return
+                return;
             }
             checkSquare(square, currentId)
         }
@@ -161,6 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
         squares.forEach(square => {
             if (square.classList.contains('bomb')) {
                 square.innerHTML = "💣"
+                square.classList.remove('bomb')
+                square.classList.add('checked')
             }
         })
     };
@@ -178,5 +180,23 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
     }
+
+        //Reset Button
+        const gridContainer = document.querySelector('.grid-container');
+        const resetButton = document.createElement('button');
+        const resetButtonContent = document.createTextNode('Reset Game');
+        resetButton.appendChild(resetButtonContent);
+        gridContainer.insertBefore(resetButton, grid);
+
+        resetButton.addEventListener('click', (e) => {
+            isGameOver = false;
+            squares = [];
+            first = grid.firstElementChild;
+            while (first) {
+                first.remove();
+                first = grid.firstElementChild;
+            }
+            createBoard();
+        });
 
 })

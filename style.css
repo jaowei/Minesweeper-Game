@@ -1,9 +1,24 @@
+body{
+    margin: 0;
+}
+
+.grid-container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+}
+
+
 .grid {
     height: 400px;
     width: 400px;
     display: flex;
     flex-wrap: wrap;
     background-color: gray;
+    border: 1px solid black;
 }
 
 .grid div {
@@ -15,6 +30,6 @@
     background-color: red;
 }
 
-.bomb {
-    background-color: orange;
-}
+/* .bomb {
+    /* background-color: orange; */
+/* }  */
