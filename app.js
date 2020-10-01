@@ -181,22 +181,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-        //Reset Button
-        const gridContainer = document.querySelector('.grid-container');
-        const resetButton = document.createElement('button');
-        const resetButtonContent = document.createTextNode('Reset Game');
-        resetButton.appendChild(resetButtonContent);
-        gridContainer.insertBefore(resetButton, grid);
+    //Reset Button
+    const resetButton = document.querySelector('button');
 
-        resetButton.addEventListener('click', (e) => {
-            isGameOver = false;
-            squares = [];
+    resetButton.addEventListener('click', (e) => {
+        isGameOver = false;
+        squares = [];
+        first = grid.firstElementChild;
+        while (first) {
+            first.remove();
             first = grid.firstElementChild;
-            while (first) {
-                first.remove();
-                first = grid.firstElementChild;
-            }
-            createBoard();
-        });
+        }
+        createBoard();
+    });
 
 })

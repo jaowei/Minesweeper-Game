@@ -1,35 +1,150 @@
 body{
-    margin: 0;
+    margin: auto;
+    background-color: #F7F3E3;
+    max-width: 1140px;
 }
+
+/* title */
+#header {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.title-container {
+    padding-bottom: 1em;
+    position: relative;
+    animation-name: slideIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.title {
+    margin: 0;
+    font-size: 50px;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+}
+
+.title:hover {
+    animation-name: jiggle;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+@keyframes slideIn {
+    0% {top: -100px}
+    100% {top: 0px}
+}
+
+@keyframes jiggle {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(5deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(-5deg);}
+    100% {transform: rotate(0deg);}
+}
+
+/* Button styles */
+
+.button-container {
+    height: fit-content;
+    padding-bottom: 1em;
+}
+
+.reset {
+    border: none;
+    background-color: #2A2B2A;
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 0.5em;
+    box-shadow: 0 4px #999;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    margin: auto;
+
+
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.reset:hover {
+    opacity: 20%;
+    box-shadow: 0 2px #666;
+    background-color: whitesmoke;
+    color: #333;
+}
+
+.reset:active{
+    transform: translateY(4px);
+}
+
+/* Minesweeper game */
 
 .grid-container {
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: space-around;
-}
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
 
+}
 
 .grid {
     height: 400px;
     width: 400px;
     display: flex;
     flex-wrap: wrap;
-    background-color: gray;
-    border: 1px solid black;
+    background-color: #dcd6bc;
+    border: 10px solid #2A2B2A;
+    position: relative;
+    animation-name: boxSlide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
 
-.grid div {
-    height: 40px;
-    width: 40px;
+@keyframes boxSlide {
+    0% {left: -1000px;}
+    100% {left: 0;}
+}
+
+
+div {
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .checked {
-    background-color: red;
-}
+    height: 40px;
+    width: 40px;
+    border: 2px solid;
+    background-color: #cecab7;
+    border-color: #9c998d;
+    box-sizing: border-box;
+  }
 
-/* .bomb {
-    /* background-color: orange; */
-/* }  */
+.valid {
+    height: 40px;
+    width: 40px;
+    border: 5px solid;
+    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+    box-sizing: border-box;
+  }
+
+  .bomb {
+    height: 40px;
+    width: 40px;
+    border: 5px solid;
+    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+    box-sizing: border-box;
+  }
